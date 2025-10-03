@@ -7,20 +7,27 @@
 </head>
 <body>
     <h1>VirusTotalでファイルスキャン</h1>
-    <form action="/scan" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" required>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" required>
         <button type="submit">スキャン</button>
     </form>
 
-    {% if result %}
-    <h2>スキャン結果</h2>
-    <p>検出率: {{ result['detected'] }} / {{ result['total'] }}</p>
-    <table border="1">
-        <tr>
-            <th>アンチウイルス</th>
-            <th>判定</th>
-        </tr>
-        {% for av, res in result['engines'].items() %}
-        <tr>
-            <td>{{ av }}</td>
-            <td>{{ res if res e
+    <div id="progressContainer" style="display:none;">
+        <p>スキャン中…</p>
+        <div id="progressBar"><div id="progress"></div></div>
+    </div>
+
+    <div id="resultContainer" style="display:none;">
+        <h2>スキャン結果</h2>
+        <p id="summary"></p>
+        <table border="1" id="resultTable">
+            <tr>
+                <th>アンチウイルス</th>
+                <th>判定</th>
+            </tr>
+        </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
