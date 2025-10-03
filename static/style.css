@@ -1,8 +1,7 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 30px;
-}
+body { font-family: Arial, sans-serif; margin: 30px; }
 h1 { color: #2a7ae2; }
-table { border-collapse: collapse; width: 80%; }
+table { border-collapse: collapse; width: 80%; margin-top: 10px; }
 th, td { padding: 8px; text-align: left; }
 th { background-color: #f2f2f2; }
+#progressBar { width: 80%; height: 20px; border: 1px solid #000; margin-top: 10px; }
+#progress { width: 0%; height: 100%; background-color: #2a7ae2; }
